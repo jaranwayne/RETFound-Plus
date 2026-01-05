@@ -47,7 +47,7 @@ pip install -r requirements.txt
 
 | Model Name         | Download Link | Source |
 |--------------------|----------------|--------|
-| RETFound_Plus   | [Access Here](https://drive.google.com/file/d/1ZYaY3AZS6Hmb32t3a3C_sWUHQpFWaEE6/view?usp=sharing) | TBD    |
+| RETFound_Plus   | [Access Here](https://drive.google.com/file/d/150SkrWO75z6evZkWCCfBtqFSHpNWuDFN/view?usp=drive_link) | TBD    |
 
 ---
 
@@ -101,7 +101,7 @@ torchrun --nproc_per_node=1 --master_port=48798 main_finetune.py \
     --data_path ./data_path \
     --input_size 224 \
     --task train_htn_incidence \
-    --finetune ./retfound_plus_student_encoder.pth
+    --finetune ./retfound_plus.pth
 ```
 
 ---

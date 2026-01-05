@@ -36,8 +36,9 @@ def logistic_nll_loss( mu, log_sigma, x, d):
     :param d: tensor of indicator t < c
     :return:
     """
-    x_scaled = (torch.log(x) - mu) / torch.exp(log_sigma)
-    nll = x_scaled + d * log_sigma + (1 + d) * torch.log(1 + torch.exp(-x_scaled))
+    x_scaled = (torch.log(x) - mu) / (torch.exp(log_sigma))
+    # torch.nn.functional.softplus(-x_scaled)  is equivalent to  torch.log(1 + torch.exp(-x_scaled)), but more numerically stable
+    nll = x_scaled + d * log_sigma + (1 + d) *  torch.nn.functional.softplus(-x_scaled)   # *torch.log(1 + torch.exp(-x_scaled))   
 
     return torch.mean(nll)
 
